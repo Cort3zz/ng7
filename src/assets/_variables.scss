@@ -1,0 +1,57 @@
+$screen-sm: 768px !default;
+$screen-xs: 480px !default;
+
+$font-logo: 'Grand Hotel', cursive;
+
+$brand-black: #000;
+$brand-primary: #F6490D !default;
+$brand-white: #fff;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+@mixin transition($transition) {
+  -moz-transition:    all $transition ease;
+  -o-transition:      all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: 		all $transition ease;
+  transition:         all $transition ease;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin inline-block() {
+  display:-moz-inline-stack;
+  display:inline-block;
+  zoom:1;
+  *display:inline;
+}
+
+@mixin translateX($translatex) {
+  -moz-transform: translateX($translatex);
+  -webkit-transform: translateX($translatex);
+  -ms-transform: translateX($translatex);
+  -o-transform: translateX($translatex);
+  transform: translateX($translatex);
+}
+
+@mixin icomoon() {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}

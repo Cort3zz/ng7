@@ -1,0 +1,287 @@
+@import "../../assets/_variables.scss";
+
+
+.colorlib-nav {
+  @media screen and (max-width: $screen-sm ) {
+    margin: 0;
+  }
+  .top-menu{
+    @media screen and (max-width: $screen-sm ) {
+      padding: 28px 1em;
+    }
+
+  }
+  #colorlib-logo {
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    font-family: $font-logo;
+    line-height: 40px;
+    a{
+      position: relative;
+      color: $brand-black;
+    }
+  }
+  .menu-1 {
+    @media screen and (max-width: $screen-sm ) {
+      display: none;
+    }
+  }
+  ul {
+    padding: 0;
+    margin: 5px 0 0 0;
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: inline;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      a {
+        position: relative;
+        font-size: 12px;
+        padding: 10px 15px;
+        color: rgba(0,0,0,.7);
+        @include transition(.5s);
+
+        &:hover{
+          color: $brand-primary;
+        }
+      }
+      &.has-dropdown {
+        position: relative;
+        .dropdown {
+          width: 140px;
+          -webkit-box-shadow: 0px 14px 33px -9px rgba(0,0,0,0.75);
+          -moz-box-shadow: 0px 14px 33px -9px rgba(0,0,0,0.75);
+          box-shadow: 0px 14px 33px -9px rgba(0,0,0,0.75);
+          z-index: 1002;
+          visibility: hidden;
+          opacity: 0;
+          position: absolute;
+          top: 40px;
+          left: 0;
+          text-align: left;
+          background: $brand-black;
+          padding: 20px;
+          @include border-radius(4px);
+          @include transition(.0s);
+          &:before {
+            bottom: 100%;
+            left: 40px;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-bottom-color: #000;
+            border-width: 8px;
+            margin-left: -8px;
+          }
+
+          li {
+            display: block;
+            margin-bottom: 7px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+            a {
+              padding: 2px 0;
+              display: block;
+              color: lighten($brand-black, 60%);
+              line-height: 1.2;
+              text-transform: none;
+              font-size: 13px;
+              letter-spacing: 0;
+              &:hover {
+                color: $brand-white;
+              }
+            }
+          }
+        }
+        &:hover, &:focus {
+          a {
+            color: $brand-primary;
+          }
+        }
+      }
+      &.btn-cta {
+        a {
+          padding: 30px 0px !important;
+          color: $brand-white;
+          span {
+            background: rgba($brand-primary,1);
+            padding: 4px 10px;
+            @include inline-block;
+            @include transition(.3s);
+            @include border-radius(100px);
+          }
+          &:hover {
+            span {
+              -webkit-box-shadow: 0px 14px 20px -9px rgba(0,0,0,0.75);
+              -moz-box-shadow: 0px 14px 20px -9px rgba(0,0,0,0.75);
+              box-shadow: 0px 14px 20px -9px rgba(0,0,0,0.75);
+            }
+          }
+        }
+      }
+      &.active {
+        > a {
+          color: $brand-primary!important;
+          position: relative;
+
+          &:after{
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#page {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+.offcanvas #page {
+  overflow: hidden;
+  position: absolute; }
+.offcanvas #page:after {
+  -webkit-transition: 2s;
+  -o-transition: 2s;
+  transition: 2s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  background: rgba(0, 0, 0, 0.7);
+  content: ""; }
+
+// off canvas
+#colorlib-offcanvas {
+  position: absolute;
+  z-index: 1901;
+  width: 270px;
+  background: lighten($brand-black, 0%);
+  top: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 75px 40px 40px 40px;
+  overflow-y: auto;
+  display: none;
+  @include translateX(270px);
+  @include transition(.5s);
+  @media screen and(max-width: $screen-sm){
+    display: block;
+  }
+  .offcanvas & {
+    @include translateX(0px);
+  }
+  a {
+    color: rgba(255,255,255,.5);
+    &:hover {
+      color: rgba(255,255,255,.8);
+    }
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      > ul {
+        padding-left: 20px;
+        display: none;
+      }
+      &.offcanvas-has-dropdown {
+        > a {
+          display: block;
+          position: relative;
+          &:after {
+            position: absolute;
+            right: 0px;
+            @include icomoon;
+            content: "\e0c5";
+            font-size: 20px;
+            color: rgba(255,255,255,.2);
+            @include transition(.5s);
+          }
+        }
+        &.active {
+          a {
+            &:after {
+              -webkit-transform: rotate(-180deg);
+              -moz-transform: rotate(-180deg);
+              -ms-transform: rotate(-180deg);
+              -o-transform: rotate(-180deg);
+              transform: rotate(-180deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.animated-fast {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes fadeInUpMenu {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    /*-webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);*/
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUpMenu {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    /*-webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);*/
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUpMenu {
+  -webkit-animation-name: fadeInUpMenu;
+  animation-name: fadeInUpMenu;
+}
